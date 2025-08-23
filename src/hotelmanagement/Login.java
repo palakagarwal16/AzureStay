@@ -23,11 +23,25 @@ public class Login extends JFrame {
         password.setBounds(150 ,70 , 150 , 30 );
         add(password);
 
-        JButton btn = new JButton("click me ");
-        btn.setBounds(40 ,120 , 150 , 30);
-//        btn.setBackground(Color.BLACK);
-//        btn.setBackground(Color.WHITE);
+        JButton btn = new JButton("Login here ");
+        btn.setBounds(40 ,150 , 120 , 30);
+        btn.setBackground(Color.BLACK);
+        btn.setForeground(Color.WHITE);
         add(btn);
+
+        JButton cancel = new JButton(" Cancel ");
+        cancel.setBounds(180 ,150 , 120 , 30);
+        cancel.setBackground(Color.BLACK);
+        cancel.setForeground(Color.WHITE);
+        add(cancel);
+
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/second.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(200 ,200 , Image.SCALE_DEFAULT );
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel image = new JLabel(i3);
+        image.setBounds(350 , 10 , 200 , 200);
+        add(image);
+
 
         setBounds( 500 , 200 , 600 , 300);
         setVisible(true);

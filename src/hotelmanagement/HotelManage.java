@@ -2,10 +2,14 @@ package hotelmanagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 import static java.awt.Color.BLUE;
 
-public class HotelManage extends JFrame {
+public class HotelManage extends JFrame implements ActionListener { //helps to catch event
+    // when you implement abstract method you need to override them else make class abstract
+
     HotelManage(){
 //        setSize(1366 , 565);
 //        setLocation(100,100);
@@ -26,7 +30,8 @@ public class HotelManage extends JFrame {
         next.setBounds(1150 , 450 ,150 , 50);
 //        next.setBackground(Color.white);
 //        next.setForeground(Color.black);
-        text.setFont( new Font( "serif" , Font.PLAIN , 30));
+        next.addActionListener(this);
+        next.setFont( new Font( "serif" , Font.PLAIN , 30));
         image.add(next);
 
 
@@ -50,7 +55,10 @@ public class HotelManage extends JFrame {
             }
         }
 
-
+    public void actionPerformed(ActionEvent ae){
+        setVisible(false);
+        new Login();
+    }
     public static void main(String[] args) {
         new HotelManage();
     }
