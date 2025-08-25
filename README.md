@@ -1,12 +1,10 @@
-🏨 AzureStay – Hotel Management & Booking System
+AzureStay – Hotel Management & Booking System
 
-AzureStay is a hotel management and booking application developed using Java (AWT, Spring Framework) and MySQL. It is designed to simplify hotel operations by providing an efficient way to manage room reservations, customer details, and availability tracking.
+AzureStay is a hotel management and booking application built with Java (AWT, Spring Framework) and MySQL. It simplifies hotel operations by managing room reservations, customer details, cancellations, and availability tracking.
 
-The project demonstrates the use of Java AWT for building a simple and interactive desktop-based interface, while the Spring Framework handles backend logic. MySQL is used as the database to store all booking and customer information, ensuring reliable and persistent data management.
+Features
 
-🚀 Features
-
-Room booking and cancellation functionality
+Room booking and cancellation
 
 Real-time room availability status
 
@@ -16,11 +14,9 @@ Admin panel for hotel staff
 
 Interactive AWT-based GUI
 
-Secure data storage with MySQL
+Persistent storage with MySQL
 
-Modular backend using Spring
-
-🛠️ Tech Stack
+Tech Stack
 
 Frontend/UI: Java AWT
 
@@ -30,10 +26,38 @@ Database: MySQL
 
 Tools: JDBC, IntelliJ/Eclipse
 
-📌 Future Scope
+How to Run / Access Project
 
-Web-based booking system with Spring Boot
+Clone the Repository:
 
-Online payment integration
+git clone https://github.com/your-username/AzureStay.git
+cd AzureStay
 
-Role-based authentication for admin and users
+
+Setup Database (MySQL):
+
+Import the provided azurestay.sql file into MySQL.
+
+Update DB credentials in the project (application.properties or JDBC config).
+
+Run the Project:
+
+Open in IntelliJ IDEA or Eclipse.
+
+Compile and run the project.
+
+The AWT GUI will launch for booking management.
+
+Login (if implemented):
+
+Default Admin: admin / admin123
+
+Additional users can be added directly via MySQL.
+
+Future Scope
+
+Add a web-based booking portal (Spring Boot + HTML/CSS/JS).
+
+Integrate payment gateway for online bookings.
+
+Role-based access for Admin and Customer.
