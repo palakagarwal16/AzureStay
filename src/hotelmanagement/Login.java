@@ -2,8 +2,13 @@ package hotelmanagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Login extends JFrame {
+
+public class Login extends JFrame implements ActionListener{
+
+    JTextField username , password;
+    JButton   cancel , btn ;
     Login(){
         getContentPane().setBackground(Color.WHITE); //background color
         setLayout(null);
@@ -11,7 +16,7 @@ public class Login extends JFrame {
         user.setBounds(40, 20 , 100 , 50);
         add(user);
 
-        JTextField username = new JTextField();
+        username = new JTextField();
         username.setBounds(150 ,20 , 150 , 30 );
         add(username);
 
@@ -19,20 +24,22 @@ public class Login extends JFrame {
         pass.setBounds(40,70 , 100, 50);
         add(pass);
 
-        JTextField password = new JTextField();
+        password = new JTextField();
         password.setBounds(150 ,70 , 150 , 30 );
         add(password);
 
-        JButton btn = new JButton("Login here ");
+        btn = new JButton("Login here ");
         btn.setBounds(40 ,150 , 120 , 30);
         btn.setBackground(Color.BLACK);
         btn.setForeground(Color.WHITE);
+        btn.addActionListener(this);
         add(btn);
 
-        JButton cancel = new JButton(" Cancel ");
+        cancel = new JButton(" Cancel ");
         cancel.setBounds(180 ,150 , 120 , 30);
         cancel.setBackground(Color.BLACK);
         cancel.setForeground(Color.WHITE);
+        cancel.addActionListener(this);
         add(cancel);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/second.jpg"));
@@ -47,6 +54,22 @@ public class Login extends JFrame {
         setVisible(true);
     }
 
+     public void actionPerformed(ActionEvent ae){
+         // we need to connect database with login username and password
+         if(ae.getSource()== btn ) {
+            String user =  username.getText();  //to get values by hitting mysql to identify if values are present
+            String pass = password.getText();
+            try{
+                Connection c =  new Connection();
+                String query = "select * from btn where username = " + user + " and password = " + pass + "";
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+         }else if(ae.getSource() == cancel){
+             setVisible(false);  //jo cancel click krte hi frame close krdega
+         }
+     }
     public static void main(String[] args) {
         Login l1 =new Login();
     }
