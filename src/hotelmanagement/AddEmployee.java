@@ -14,7 +14,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         setBounds( 350 , 200, 850 ,540 );
         getContentPane().setBackground(Color.WHITE);
 
-        JLabel lblname = new JLabel("Name ");     //to give a label
+        JLabel lblname = new JLabel("NAME ");     //to give a label
         lblname.setBounds(60 , 30 , 120 , 30);
         lblname.setFont(new Font("Tahoma", Font.PLAIN,17));
         add(lblname);
@@ -23,7 +23,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         tfname.setBounds( 200, 30 , 150 , 30 );
         add(tfname);
 
-        JLabel lblage = new JLabel( "Age ");
+        JLabel lblage = new JLabel( "AGE");
         lblage.setBounds( 60 , 80 ,120 , 30  );
         lblage.setFont(new Font("Tahoma", Font.PLAIN,17));
         add(lblage);
@@ -37,9 +37,9 @@ public class AddEmployee extends JFrame implements ActionListener {
         lblgender.setFont(new Font("Tahoma", Font.PLAIN,17));
         add(lblgender);
 
-        tfgender = new JTextField();
-        tfgender.setBounds( 200, 130 , 150 , 30 );
-        add(tfgender);
+//        tfgender = new JTextField();
+//        tfgender.setBounds( 200, 130 , 150 , 30 );
+//        add(tfgender);
 
 
         rbmale = new JRadioButton("Male");
@@ -49,10 +49,15 @@ public class AddEmployee extends JFrame implements ActionListener {
         add(rbmale);
 
         rbfemale = new JRadioButton("Female");
-        rbfemale.setBounds(280 , 130 , 70 , 30);
-        rbfemale.setFont(new Font("Tahoma", Font.PLAIN,14));
+        rbfemale.setBounds(270 , 130 , 70 , 30);
+        rbfemale.setFont(new Font("Tahoma", Font.PLAIN,17));
         rbfemale.setBackground(Color.WHITE);
         add(rbfemale);
+
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(rbmale);
+        bg.add(rbfemale);
+
 
         JLabel lbljob = new JLabel( "JOB ");
         lbljob.setBounds( 60 , 180 ,120 , 30  );
@@ -60,7 +65,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         add(lbljob);
 
         String str[] = {" Front Desk Clerks" , " Waiters" , " Accountants", " Porters" , " HouseKeeping" , " KitchenStaff " , " RoomService" , " Cooks" , " Drivers ", " Maids" , "Garderners"};
-        JComboBox cbjob = new JComboBox(str);
+        cbjob = new JComboBox(str);
         cbjob.setBounds(200 , 180 , 150 , 30);
         cbjob.setBackground(Color.WHITE);
         add(cbjob);
@@ -84,7 +89,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         tfphone.setBounds( 200, 280 , 150 , 30 );
         add(tfphone);
 
-        JLabel lblemail = new JLabel( "Phone ");
+        JLabel lblemail = new JLabel( "E-MAIL ");
         lblemail.setBounds( 60 , 330 ,120 , 30  );
         lblemail.setFont(new Font("Tahoma", Font.PLAIN,17));
         add(lblemail);
@@ -106,6 +111,7 @@ public class AddEmployee extends JFrame implements ActionListener {
        submit.setBackground(Color.BLACK);
        submit.setForeground(Color.WHITE);
        submit.setBounds( 200 , 430 , 150 , 30);
+       submit.addActionListener(this);
        add(submit);
 
 
@@ -119,8 +125,8 @@ public class AddEmployee extends JFrame implements ActionListener {
         setVisible(true);
 
     }
-
-    public void actionPerformed(){
+    @Override
+    public void actionPerformed(ActionEvent ae){
     String name = tfname.getText();
     String age = tfage.getText();
     String salary = tfsalary.getText();
@@ -128,10 +134,25 @@ public class AddEmployee extends JFrame implements ActionListener {
     String email = tfemail.getText();
     String adhaar = tfadhaar.getText();
 
+    String gender = null;
+    if(rbmale.isSelected()){
+     gender = "Male";}
+    else if (rbfemale.isSelected()) {
+        gender = "Female";}
+
+    String job = (String) cbjob.getSelectedItem();
+
+    try{
+   Conn conn = new Conn();
+   String query = "insert into employee values('"+name+"' , '"+age+"' , '"+phone+"', '"+salary+"' ,'"+email+"', '"+gender+"' , '"+job+"' , '"+adhaar+"' )";
+    conn.s.executeUpdate(query);
+   JOptionPane.showMessageDialog(null , "Employee added successfully");
+    } catch( Exception e){
+        e.printStackTrace();
     }
+}
 
     public static void main(String[] args) {
        new AddEmployee();
     }
-
 }
