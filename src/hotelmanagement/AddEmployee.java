@@ -17,9 +17,10 @@ public class AddEmployee extends JFrame {
         tfname.setBounds( 200, 30 , 150 , 30 );
         add(tfname);
 
-        JLabel age = new JLabel( "Age ");
-        age.setBounds( 60 , 80 ,120 , 30  );
-        add(age);
+        JLabel lblage = new JLabel( "Age ");
+        lblage.setBounds( 60 , 80 ,120 , 30  );
+        lblage.setFont(new Font("Tahoma", Font.PLAIN,17));
+        add(lblage);
 
         JTextField tfage = new JTextField();
         tfage.setBounds( 200, 80 , 150 , 30 );
@@ -27,7 +28,7 @@ public class AddEmployee extends JFrame {
 
         JLabel lblgender = new JLabel( "Gender ");
         lblgender.setBounds( 60 , 130 ,120 , 30  );
-        lblgender.setFont(new Font("Tahoma", Font.PLAIN,14));
+        lblgender.setFont(new Font("Tahoma", Font.PLAIN,17));
         add(lblgender);
 
         JTextField tfgender = new JTextField();
@@ -49,15 +50,42 @@ public class AddEmployee extends JFrame {
 
         JLabel lbljob = new JLabel( "JOB ");
         lbljob.setBounds( 60 , 180 ,120 , 30  );
-        rbfemale.setFont(new Font("Tahoma", Font.PLAIN,14));
+        rbfemale.setFont(new Font("Tahoma", Font.PLAIN,20));
         add(lbljob);
 
-        String str[] = {" Front Desk Clerks" , "Waiters" , "Accountants", "Porters" , " HouseKeeping" , "KitchenStaff " , "RoomService" , "Cooks" , "Drivers ", "Maids" , "Garderners"};
+        String str[] = {" Front Desk Clerks" , " Waiters" , " Accountants", " Porters" , " HouseKeeping" , " KitchenStaff " , " RoomService" , " Cooks" , " Drivers ", " Maids" , "Garderners"};
         JComboBox cbjob = new JComboBox(str);
         cbjob.setBounds(200 , 180 , 150 , 30);
         cbjob.setBackground(Color.WHITE);
         add(cbjob);
 
+        JLabel lblsalary = new JLabel( "Salary ");
+        lblsalary.setBounds( 60 , 230 ,120 , 30  );
+        lblsalary.setFont(new Font("Tahoma", Font.PLAIN,17));
+        add(lblsalary);
+
+        JTextField tfsalary = new JTextField();
+        tfsalary.setBounds( 200, 230 , 150 , 30 );
+        add(tfsalary);
+
+
+        JLabel lblphone = new JLabel( "Phone ");
+        lblphone.setBounds( 60 , 280 ,120 , 30  );
+        lblphone.setFont(new Font("Tahoma", Font.PLAIN,17));
+        add(lblphone);
+
+        JTextField tfphone = new JTextField();
+        tfphone.setBounds( 200, 280 , 150 , 30 );
+        add(tfphone);
+
+        JLabel lblemail = new JLabel( "Phone ");
+        lblemail.setBounds( 60 , 330 ,120 , 30  );
+        lblemail.setFont(new Font("Tahoma", Font.PLAIN,17));
+        add(lblemail);
+
+        JTextField tfemail = new JTextField();
+        tfemail.setBounds( 200, 330 , 150 , 30 );
+        add(tfemail);
 
 
 
