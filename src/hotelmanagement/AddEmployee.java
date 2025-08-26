@@ -25,9 +25,10 @@ public class AddEmployee extends JFrame {
         tfage.setBounds( 200, 80 , 150 , 30 );
         add(tfage);
 
-        JLabel gender = new JLabel( "Age ");
-        gender.setBounds( 60 , 130 ,120 , 30  );
-        add(gender);
+        JLabel lblgender = new JLabel( "Gender ");
+        lblgender.setBounds( 60 , 130 ,120 , 30  );
+        lblgender.setFont(new Font("Tahoma", Font.PLAIN,14));
+        add(lblgender);
 
         JTextField tfgender = new JTextField();
         tfgender.setBounds( 200, 130 , 150 , 30 );
@@ -39,13 +40,26 @@ public class AddEmployee extends JFrame {
         rbmale.setFont(new Font("Tahoma", Font.PLAIN,14));
         rbmale.setBackground(Color.WHITE);
         add(rbmale);
+
         JRadioButton rbfemale = new JRadioButton("Female");
         rbfemale.setBounds(280 , 130 , 70 , 30);
         rbfemale.setFont(new Font("Tahoma", Font.PLAIN,14));
         rbfemale.setBackground(Color.WHITE);
         add(rbfemale);
 
-        add(rbmale);
+        JLabel lbljob = new JLabel( "JOB ");
+        lbljob.setBounds( 60 , 180 ,120 , 30  );
+        rbfemale.setFont(new Font("Tahoma", Font.PLAIN,14));
+        add(lbljob);
+
+        String str[] = {" Front Desk Clerks" , "Waiters" , "Accountants", "Porters" , " HouseKeeping" , "KitchenStaff " , "RoomService" , "Cooks" , "Drivers ", "Maids" , "Garderners"};
+        JComboBox cbjob = new JComboBox(str);
+        cbjob.setBounds(200 , 180 , 150 , 30);
+        cbjob.setBackground(Color.WHITE);
+        add(cbjob);
+
+
+
 
 
         setVisible(true);
