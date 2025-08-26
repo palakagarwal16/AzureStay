@@ -135,6 +135,12 @@ public class AddEmployee extends JFrame implements ActionListener {
     String adhaar = tfadhaar.getText();
 
     String gender = null;
+
+    if (name.equals(" ")){
+        JOptionPane.showMessageDialog(null , "name should not be empty");
+    }
+
+
     if(rbmale.isSelected()){
      gender = "Male";}
     else if (rbfemale.isSelected()) {
