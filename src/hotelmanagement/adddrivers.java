@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class adddrivers extends JFrame implements ActionListener {
     JButton Add , Cancel ;
-    JTextField tfname , tfage ,tfcar , tfCarcompany , tfLOC , tfcarmodel ;
+    JTextField tfname , tfage ,tfcar , tfLOC , tfcarmodel ;
     JComboBox gendercombo , availaiblecombo;
     adddrivers(){
 
@@ -88,14 +88,14 @@ public class adddrivers extends JFrame implements ActionListener {
 
 
 
-        Add = new JButton("Add room");
+        Add = new JButton("Add Driver");
         Add.setBounds(60 , 350 , 130 , 30);
         Add.setForeground(Color.WHITE);
         Add.setBackground(Color.BLACK);
         Add.addActionListener(this);
         add(Add);
 
-        Cancel = new JButton("Cancel room");
+        Cancel = new JButton("Cancel Driver");
         Cancel.setBounds(220 , 350 , 130 , 30);
         Cancel.setForeground(Color.WHITE);
         Cancel.setBackground(Color.BLACK);
@@ -118,18 +118,22 @@ public class adddrivers extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae){
         if( ae.getSource() == Add){
             String name = tfname.getText();
-            String gender= (String)gendercombo.getSelectedItem();
-            String carcompany = tfCarcompany.getText();
             String age = tfage.getText();
+            String gender= (String)gendercombo.getSelectedItem();
+            String carcompany = tfcar.getText();
             String Location = tfLOC.getText();
-            String availaiblecombo = (String)gendercombo.getSelectedItem();
+            String carmodel = tfcarmodel.getText();
+            String availaiblecombo = (String) this.availaiblecombo.getSelectedItem();
 
 
             try{
                 Conn conn = new Conn();
-                String str = "insert into room values('"+name+"' , '"+age+"' , '"+gender+"', '"+Location+"' ,'"+carcompany+"' , '"+availaiblecombo+"') ";
+                String str = "INSERT INTO Driver(name, age, gender, carcompany, location, carmodel, availaiblecombo) "
+                        + "VALUES('"+name+"' , '"+age+"' , '"+gender+"', '"+carcompany+"' ,'"+Location+"' ,'"+carmodel+"', '"+availaiblecombo+"')";
+
+//                String str = "INSERT INTO Driver VALUES('"+name+"' , '"+age+"' , '"+gender+"', '"+carcompany+"' ,'"+Location+"' ,'"+carmodel+"', '"+availaiblecombo+"')";
                 conn.s.executeUpdate(str);
-                JOptionPane.showMessageDialog(null, "New room Added Sucessfully");
+                JOptionPane.showMessageDialog(null, "New Driver Added Sucessfully");
 
 
 
