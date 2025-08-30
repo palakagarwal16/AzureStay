@@ -45,6 +45,7 @@ public class Dashboard extends JFrame implements ActionListener {
         Admin.add(AddROOMS);
 
         JMenuItem AddDRIVERS = new JMenuItem("Add Drivers");
+        AddDRIVERS.addActionListener(this);
         Admin.add(AddDRIVERS);
 
         JMenuItem Addemployee = new JMenuItem("Add Employee");
@@ -62,6 +63,9 @@ public class Dashboard extends JFrame implements ActionListener {
             new AddRooms();
         } else if (ae.getActionCommand().equals("Add Drivers")) {
             new adddrivers();
+        }
+        else if (ae.getActionCommand().equals("Reception")) {
+            new AddReception();
         }
     }
 
