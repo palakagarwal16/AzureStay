@@ -2,11 +2,12 @@ package hotelmanagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.Date;
 
-public class Addcustomer extends JFrame  {
+public class Addcustomer extends JFrame implements ActionListener  {
     JComboBox comboid;
     JTextField tfnumber , tfname , tfcountry , tfdeposit;
     JRadioButton rmale , rfemale;
@@ -88,7 +89,7 @@ public class Addcustomer extends JFrame  {
 
         try{
             Conn conn = new Conn();
-            String query = "Select * from room ";
+            String query = "Select * from room where availaibility ='Availaible'";
              ResultSet rs = conn.s.executeQuery(query);
              while(rs.next()){
                  croom.add(rs.getString("roomnumber"));
@@ -124,18 +125,18 @@ public class Addcustomer extends JFrame  {
 
 
 
-        Add = new JButton("Add room");
+        Add = new JButton("Add ");
         Add.setBounds(30 , 410 , 130 , 30);
         Add.setForeground(Color.WHITE);
         Add.setBackground(Color.BLACK);
-//        Add.addActionListener(this);
+        Add.addActionListener(this);
         add(Add);
 
-        back = new JButton("Cancel room");
+        back = new JButton("Back");
         back.setBounds(200 , 410 , 130 , 30);
         back.setForeground(Color.WHITE);
         back.setBackground(Color.BLACK);
-//        back.addActionListener(this);
+        back.addActionListener(this);
         add(back);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/fifth.png"));
@@ -151,6 +152,46 @@ public class Addcustomer extends JFrame  {
 
 
 
+    }
+
+    public void actionPerformed (ActionEvent ae){
+        if(ae.getSource()== Add ) {
+            String id = (String) comboid.getSelectedItem();
+            String number = tfnumber.getText();
+            String name = tfname.getText();
+            String gender = null;
+            if (rmale.isSelected()) {
+                gender = "Male";
+            } else {
+                gender = "Female";
+            }
+
+            String country =  tfcountry.getText();
+            String room = croom.getSelectedItem();
+            String time = checkintime.getText();
+            String deposit = tfdeposit.getText();
+
+            try{
+                String q1 = "insert into customer values('"+id+"','"+number+"','"+name+"','"+gender+"','"+country+"','"+room+"','"+time+"','"+deposit+"')";
+                String q2 = "update room set availaibility = 'Occupied' where roomnumber = '"+room+"' ";
+                Conn conn = new Conn();
+                conn.s.executeUpdate(q1);
+                conn.s.executeUpdate(q2);
+
+                JOptionPane.showMessageDialog(null , " New Customer Added Succesfully");
+                setVisible(false);
+                new AddReception();
+
+            }
+            catch(Exception e)
+            {
+              e.printStackTrace();
+            }
+        }
+        else if (ae.getSource()== back){
+            setVisible(false);
+            new AddReception();
+        }
     }
 
     public static void main(String[] args) {

@@ -108,7 +108,13 @@ public class AddReception extends JFrame implements ActionListener  {
     }
 
 
-    public void actionPerformed(ActionEvent ae){}
+    public void actionPerformed(ActionEvent ae) {
+
+        if (ae.getSource() == newcustomer) {
+            setVisible(false);
+            new Addcustomer();
+        }
+    }
 
     public static void main(String[] args) {
         new AddReception();
