@@ -86,7 +86,6 @@ public class Addcustomer extends JFrame implements ActionListener  {
         add(lblroom);
 
         croom = new Choice();
-
         try{
             Conn conn = new Conn();
             String query = "Select * from room where availaibility ='Availaible'";

@@ -111,8 +111,10 @@ public void actionPerformed(ActionEvent ae){
 
         try{
             Conn conn = new Conn();
+
             String str = "insert into room values('"+roomnumber+"' , '"+availaibility+"' , '"+cleaningstatus+"', '"+bed_type+"' ,'"+price+"') ";
-           conn.s.executeUpdate(str);
+
+            conn.s.executeUpdate(str);
             JOptionPane.showMessageDialog(null, "New room Added Sucessfully");
 
 

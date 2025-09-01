@@ -138,6 +138,14 @@ public class AddReception extends JFrame implements ActionListener  {
             setVisible(false);
             new  Searchroom();
         }
+        else if(ae.getSource()== updatestatus){
+            setVisible(false);
+            new  UpdateCheck();
+        }
+        else if(ae.getSource()== pickupstatus){
+            setVisible(false);
+            new Pickup();
+        }
     }
 
     public static void main(String[] args) {
