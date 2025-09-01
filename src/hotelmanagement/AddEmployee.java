@@ -64,7 +64,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         rbfemale.setFont(new Font("Tahoma", Font.PLAIN,20));
         add(lbljob);
 
-        String str[] = {" Front Desk Clerks" , " Waiters" , " Accountants", " Porters" , " HouseKeeping" , " KitchenStaff " , " RoomService" , " Cooks" , " Drivers ", " Maids" , "Garderners"};
+        String str[] = {" Front Desk Clerks" ,"Manager", " Waiters" , " Accountants", " Porters" , " HouseKeeping" , " KitchenStaff " , " RoomService" , " Cooks" , " Drivers ", " Maids" , "Garderners"};
         cbjob = new JComboBox(str);
         cbjob.setBounds(200 , 180 , 150 , 30);
         cbjob.setBackground(Color.WHITE);
@@ -150,7 +150,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
     try{
    Conn conn = new Conn();
-   String query = "insert into employee values('"+name+"' , '"+age+"' , '"+phone+"', '"+salary+"' ,'"+email+"', '"+gender+"' , '"+job+"' , '"+adhaar+"' )";
+   String query = "insert into employee values('"+name+"' , '"+age+"' ,'"+gender+"', '"+job+"', '"+salary+"' ,'"+phone+"', '"+email+"' , '"+adhaar+"' )";
     conn.s.executeUpdate(query);
    JOptionPane.showMessageDialog(null , "Employee added successfully");
     } catch( Exception e){

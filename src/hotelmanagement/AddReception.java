@@ -114,6 +114,30 @@ public class AddReception extends JFrame implements ActionListener  {
             setVisible(false);
             new Addcustomer();
         }
+        else if (ae.getSource() == rooms) {
+            setVisible(false);
+            new AddRooms();
+        }
+        else if(ae.getSource()== department){
+            setVisible(false);
+            new  Department();
+        }
+        else if(ae.getSource()== allemployee){
+            setVisible(false);
+            new  AllEmployees();
+        }
+
+        else if(ae.getSource()== managerinfo){
+            setVisible(false);
+            new  Managerinfo();
+        }
+        else if(ae.getSource()== customer){
+            setVisible(false);
+            new  Customerinfo();
+        }else if(ae.getSource()== searchroom){
+            setVisible(false);
+            new  Searchroom();
+        }
     }
 
     public static void main(String[] args) {
